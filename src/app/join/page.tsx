@@ -4,6 +4,8 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Divider } from "@/components/ui/Divider";
 import { Reveal } from "@/components/ui/Reveal";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
+import { TextReveal } from "@/components/ui/TextReveal";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -12,6 +14,12 @@ export const metadata: Metadata = {
     "Join the Labor Party. No corporate money, no compromise. Your membership builds political power for working people.",
 };
 
+const JOIN_STATS = [
+  { value: 50, label: "State Chapters" },
+  { value: 0, prefix: "$", label: "Corporate Dollars" },
+  { value: 2024, label: "Year Founded" },
+];
+
 export default function JoinPage() {
   return (
     <>
@@ -19,6 +27,7 @@ export default function JoinPage() {
       <Section>
         <Reveal>
           <div className={styles.heroBlock}>
+            <p className={styles.heroLabel}>Become a member</p>
             <h1 className={styles.heroTitle}>Join the Fight</h1>
             <p className={styles.heroSub}>
               Your membership funds a political party that answers to workers
@@ -31,6 +40,11 @@ export default function JoinPage() {
         </Reveal>
       </Section>
 
+      {/* Mission reveal */}
+      <Section bg="alt">
+        <TextReveal text="Every dollar we raise comes from working people. Not one cent from corporations, landlords, or Wall Street. That independence is what lets us fight for real rent control, universal healthcare, and a tax code that makes billionaires pay their share." />
+      </Section>
+
       <Divider />
 
       {/* Why Join */}
@@ -39,14 +53,8 @@ export default function JoinPage() {
           <Container>
             <h2 className={styles.subhead}>Why It Matters</h2>
             <p>
-              Every dollar we raise comes from working people. Not one cent from
-              corporations, landlords, or Wall Street. That independence is what
-              lets us fight for real rent control, universal healthcare, and a
-              tax code that makes billionaires pay their share.
-            </p>
-            <p>
-              When you become a member, you're not just writing a check. You're
-              building the only political party in this country that can't be
+              When you become a member, you&apos;re not just writing a check. You&apos;re
+              building the only political party in this country that can&apos;t be
               bought. Your dues fund organizers, candidates, and the
               infrastructure that turns popular ideas into political power.
             </p>
@@ -86,7 +94,7 @@ export default function JoinPage() {
               <div className={styles.benefit}>
                 <h3>Your Movement</h3>
                 <p>
-                  Be part of something that's never existed in this country.
+                  Be part of something that&apos;s never existed in this country.
                   A party built by workers, for workers.
                 </p>
               </div>
@@ -97,24 +105,9 @@ export default function JoinPage() {
 
       <Divider />
 
-      {/* Social Proof */}
+      {/* Stats - Animated */}
       <Section>
-        <Reveal>
-          <div className={styles.stats}>
-            <div className={styles.stat}>
-              <span className={styles.statNumber}>50</span>
-              <span className={styles.statLabel}>State Chapters</span>
-            </div>
-            <div className={styles.stat}>
-              <span className={styles.statNumber}>$0</span>
-              <span className={styles.statLabel}>Corporate Dollars</span>
-            </div>
-            <div className={styles.stat}>
-              <span className={styles.statNumber}>EST. 2024</span>
-              <span className={styles.statLabel}>Founded</span>
-            </div>
-          </div>
-        </Reveal>
+        <AnimatedCounter stats={JOIN_STATS} />
       </Section>
 
       <Divider />
@@ -125,7 +118,7 @@ export default function JoinPage() {
           <div className={styles.finalCta}>
             <h2 className={styles.subhead}>Ready?</h2>
             <p>
-              Membership starts at whatever you can afford. We're funded by
+              Membership starts at whatever you can afford. We&apos;re funded by
               working people, not billionaires, so every dollar counts.
             </p>
             <Button href="https://members.votelabor.org" external>
@@ -134,8 +127,6 @@ export default function JoinPage() {
           </div>
         </Reveal>
       </Section>
-
-      <Divider />
     </>
   );
 }

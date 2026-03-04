@@ -1,8 +1,10 @@
 .card {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--border);
   padding: 24px;
   transition: transform var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
     box-shadow var(--duration-fast) var(--ease-standard);
 }
 
@@ -12,8 +14,15 @@
   display: block;
 }
 
+/* Letterpress-style hard shadow on hover */
 .linked:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translate(-3px, -3px);
+  box-shadow: 3px 3px 0 var(--molten);
+  border-color: var(--border-strong);
   text-decoration: none;
+}
+
+.linked:active {
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 var(--molten);
 }

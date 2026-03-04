@@ -1,3 +1,14 @@
+.heroLabel {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--molten);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
 .heroTitle {
   font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
   font-weight: 600;
@@ -8,6 +19,12 @@
 
 .subhead {
   margin-bottom: 24px;
+}
+
+.highlight {
+  font-weight: 600;
+  color: var(--molten);
+  font-size: 18px;
 }
 
 .cta {

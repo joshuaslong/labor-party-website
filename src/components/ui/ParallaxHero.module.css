@@ -1,0 +1,62 @@
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.bisonLayer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.bisonImage {
+  width: 70vw;
+  max-width: 800px;
+  height: auto;
+  filter: contrast(1.1);
+}
+
+@media (max-width: 768px) {
+  .bisonImage {
+    width: 90vw;
+  }
+}
+
+.fadeOverlay {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 48px;
+  text-align: center;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 0 16px;
+  }
+}

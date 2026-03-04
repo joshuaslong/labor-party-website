@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Divider } from "@/components/ui/Divider";
 import { Reveal } from "@/components/ui/Reveal";
+import { TextReveal } from "@/components/ui/TextReveal";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -18,8 +19,14 @@ export default function AboutPage() {
       {/* Hero */}
       <Section>
         <Reveal>
+          <p className={styles.heroLabel}>About</p>
           <h1 className={styles.heroTitle}>Who We Are</h1>
         </Reveal>
+      </Section>
+
+      {/* Mission reveal */}
+      <Section bg="alt">
+        <TextReveal text="Neither major party serves working people. Democrats talk about workers while cashing checks from Wall Street. Republicans talk about jobs while cutting the regulations that keep workers safe. Both parties have had over 150 years. The results speak for themselves." />
       </Section>
 
       <Divider />
@@ -29,13 +36,6 @@ export default function AboutPage() {
         <Reveal>
           <Container>
             <h2 className={styles.subhead}>Founded in 2024</h2>
-            <p>
-              The Labor Party was born out of a simple reality: neither major
-              party serves working people. Democrats talk about workers while
-              cashing checks from Wall Street. Republicans talk about jobs while
-              cutting the regulations that keep workers safe. Both parties have
-              had over 150 years. The results speak for themselves.
-            </p>
             <p>
               We started because someone had to. Working people across every
               region, industry, and background decided to stop waiting for the
@@ -60,12 +60,15 @@ export default function AboutPage() {
               who profits from keeping wages low, rents high, and healthcare
               out of reach.
             </p>
+            <p className={styles.highlight}>
+              That&apos;s not a slogan. It&apos;s a structural advantage.
+            </p>
             <p>
-              That's not a slogan. It's a structural advantage. Politicians who
-              take corporate PAC money can't propose real rent control because
-              their donors would pull funding the same day. They can't deliver
-              universal healthcare because pharma companies write the checks.
-              They can't tax wealth because Wall Street runs the fundraisers.
+              Politicians who take corporate PAC money can&apos;t propose real rent
+              control because their donors would pull funding the same day. They
+              can&apos;t deliver universal healthcare because pharma companies write
+              the checks. They can&apos;t tax wealth because Wall Street runs the
+              fundraisers.
             </p>
             <p>
               We can. Because we answer to working people and nobody else.
@@ -82,14 +85,14 @@ export default function AboutPage() {
           <Container>
             <h2 className={styles.subhead}>What We Stand For</h2>
             <p>
-              Good jobs with living wages. Healthcare that doesn't bankrupt you.
+              Good jobs with living wages. Healthcare that doesn&apos;t bankrupt you.
               Rent you can actually afford. Schools that prepare your kids for
               real life. A government that works for the people who pay for it.
             </p>
             <p>
-              These aren't radical ideas. They're common sense. The only reason
+              These aren&apos;t radical ideas. They&apos;re common sense. The only reason
               they feel radical is that both parties take money from the people
-              who benefit from the way things are. We don't, so we won't
+              who benefit from the way things are. We don&apos;t, so we won&apos;t
               compromise.
             </p>
           </Container>
@@ -104,7 +107,7 @@ export default function AboutPage() {
           <div className={styles.cta}>
             <h2 className={styles.subhead}>Be Part of It</h2>
             <p>
-              We're building the first political party in modern American
+              We&apos;re building the first political party in modern American
               history that refuses corporate money on principle. Your membership
               makes that possible.
             </p>
@@ -114,8 +117,6 @@ export default function AboutPage() {
           </div>
         </Reveal>
       </Section>
-
-      <Divider />
     </>
   );
 }

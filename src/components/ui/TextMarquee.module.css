@@ -1,0 +1,34 @@
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: scroll linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.text {
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-stretch: condensed;
+  font-size: clamp(0.85rem, 1.2vw + 0.3rem, 1.1rem);
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
