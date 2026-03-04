@@ -50,26 +50,7 @@
   --duration-reveal: 0.6s;
 }
 
-/* --- Dark Mode --- */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #1A1512;
-    --bg-alt: #231E19;
-    --bg-accent: #2D2520;
-    --surface: #2D2520;
-    --border: #4A4239;
-    --border-strong: #5C5347;
-    --text: #EDE4CC;
-    --text-secondary: #CABFA5;
-    --text-muted: #8E856F;
-    --molten: #E08080;
-    --brick: #E88089;
-    --dsb: #6699B8;
-    --steel: #A9CBE1;
-    --ink: #EDE4CC;
-  }
-}
-
+/* --- Dark Mode (opt-in only, no auto-detection) --- */
 [data-theme="dark"] {
   --bg: #1A1512;
   --bg-alt: #231E19;
