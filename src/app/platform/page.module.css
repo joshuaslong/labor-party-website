@@ -1,0 +1,20 @@
+.title {
+  font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  font-weight: 600;
+  font-stretch: expanded;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 48px;
+}
+
+@media (max-width: 768px) {
+  .subtitle {
+    margin-bottom: 32px;
+  }
+}

@@ -1,0 +1,120 @@
+.footer {
+  background: var(--footer-bg);
+  color: var(--cream);
+  padding: 64px 0 32px;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 0 24px;
+  }
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(237, 228, 204, 0.15);
+}
+
+@media (max-width: 768px) {
+  .top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-stretch: expanded;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  color: var(--cream);
+}
+
+.est {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-stretch: expanded;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: rgba(237, 228, 204, 0.5);
+}
+
+.navGroup {
+  display: flex;
+  align-items: flex-start;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.navLink {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(237, 228, 204, 0.6);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.navLink:hover {
+  color: var(--cream);
+  text-decoration: none;
+}
+
+.socialGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-content: flex-start;
+}
+
+.socialLink {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(237, 228, 204, 0.5);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.socialLink:hover {
+  color: var(--cream);
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.legal {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: rgba(237, 228, 204, 0.4);
+  margin: 0;
+}

@@ -1,0 +1,38 @@
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-reveal) var(--ease-out),
+    transform var(--duration-reveal) var(--ease-out);
+}
+
+.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger children by 80ms */
+.stagger.visible > :nth-child(1) { transition-delay: 0ms; }
+.stagger.visible > :nth-child(2) { transition-delay: 80ms; }
+.stagger.visible > :nth-child(3) { transition-delay: 160ms; }
+.stagger.visible > :nth-child(4) { transition-delay: 240ms; }
+.stagger.visible > :nth-child(5) { transition-delay: 320ms; }
+.stagger.visible > :nth-child(6) { transition-delay: 400ms; }
+.stagger.visible > :nth-child(7) { transition-delay: 480ms; }
+.stagger.visible > :nth-child(8) { transition-delay: 560ms; }
+.stagger.visible > :nth-child(9) { transition-delay: 640ms; }
+.stagger.visible > :nth-child(10) { transition-delay: 720ms; }
+.stagger.visible > :nth-child(11) { transition-delay: 800ms; }
+.stagger.visible > :nth-child(12) { transition-delay: 880ms; }
+
+/* Children in stagger mode start hidden */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-reveal) var(--ease-out),
+    transform var(--duration-reveal) var(--ease-out);
+}
+
+.stagger.visible > * {
+  opacity: 1;
+  transform: none;
+}

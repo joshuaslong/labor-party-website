@@ -1,0 +1,40 @@
+.section {
+  width: 100%;
+  padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 48px 0;
+  }
+}
+
+.default {
+  background: var(--bg);
+}
+
+.alt {
+  background: var(--bg-alt);
+}
+
+.accent {
+  background: var(--bg-accent);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: 0 16px;
+  }
+}

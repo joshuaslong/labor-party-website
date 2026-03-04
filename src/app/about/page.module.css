@@ -1,0 +1,22 @@
+.heroTitle {
+  font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  font-weight: 600;
+  font-stretch: expanded;
+  text-align: center;
+  margin: 0;
+}
+
+.subhead {
+  margin-bottom: 24px;
+}
+
+.cta {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.cta p {
+  margin-bottom: 32px;
+  color: var(--text-secondary);
+}

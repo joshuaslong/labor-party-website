@@ -1,0 +1,80 @@
+.searchWrap {
+  position: relative;
+  margin-bottom: 48px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .searchWrap {
+    margin-bottom: 32px;
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--steel);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.count {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.cardSummary {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.noResults {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--text-muted);
+  padding: 48px 0;
+}

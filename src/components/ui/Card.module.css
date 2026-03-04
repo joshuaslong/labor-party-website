@@ -1,0 +1,19 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 24px;
+  transition: transform var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.linked {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.linked:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+}
