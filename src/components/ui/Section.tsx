@@ -1,7 +1,7 @@
 import styles from "./Section.module.css";
 
 interface SectionProps {
-  bg?: "default" | "alt" | "accent";
+  bg?: "default" | "alt" | "accent" | "dark";
   children: React.ReactNode;
   className?: string;
   id?: string;

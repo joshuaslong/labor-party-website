@@ -28,3 +28,20 @@
   transform: rotate(45deg);
   flex-shrink: 0;
 }
+
+/* Heavy variant — thick full-width rule */
+.heavy {
+  height: 3px;
+  background: var(--border-strong);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Accent variant — thin molten red rule */
+.accentRule {
+  height: 1px;
+  background: var(--molten);
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0.4;
+}

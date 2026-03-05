@@ -18,7 +18,7 @@ export function ParallaxHero({ children }: ParallaxHeroProps) {
 
   const bisonY = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const bisonScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-  const bisonOpacity = useTransform(scrollYProgress, [0, 0.8], [0.12, 0.04]);
+  const bisonOpacity = useTransform(scrollYProgress, [0, 0.8], [0.18, 0.06]);
   const contentY = useTransform(scrollYProgress, [0, 1], [0, -60]);
   const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0, 0.3]);
 

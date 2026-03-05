@@ -6,6 +6,7 @@ import { Divider } from "@/components/ui/Divider";
 import { Reveal } from "@/components/ui/Reveal";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { TextReveal } from "@/components/ui/TextReveal";
+import { ValuePropCard } from "@/components/ui/ValuePropCard";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -17,7 +18,14 @@ export const metadata: Metadata = {
 const JOIN_STATS = [
   { value: 50, label: "State Chapters" },
   { value: 0, prefix: "$", label: "Corporate Dollars" },
-  { value: 2024, label: "Year Founded" },
+  { value: 12, label: "Policy Areas" },
+];
+
+const DUES_BREAKDOWN = [
+  { label: "State Organizing", pct: 40 },
+  { label: "Candidate Support", pct: 25 },
+  { label: "Operations", pct: 20 },
+  { label: "National Campaigns", pct: 15 },
 ];
 
 export default function JoinPage() {
@@ -40,18 +48,23 @@ export default function JoinPage() {
         </Reveal>
       </Section>
 
-      {/* Mission reveal */}
+      {/* Stats — moved up for social proof near hero */}
       <Section bg="alt">
+        <AnimatedCounter stats={JOIN_STATS} />
+      </Section>
+
+      {/* Mission reveal */}
+      <Section>
         <TextReveal text="Every dollar we raise comes from working people. Not one cent from corporations, landlords, or Wall Street. That independence is what lets us fight for real rent control, universal healthcare, and a tax code that makes billionaires pay their share." />
       </Section>
 
-      <Divider />
+      <Divider variant="heavy" />
 
       {/* Why Join */}
       <Section>
         <Reveal>
           <Container>
-            <h2 className={styles.subhead}>Why It Matters</h2>
+            <h2 className={styles.sectionHeading}>Why It Matters</h2>
             <p>
               When you become a member, you&apos;re not just writing a check. You&apos;re
               building the only political party in this country that can&apos;t be
@@ -62,61 +75,74 @@ export default function JoinPage() {
         </Reveal>
       </Section>
 
-      <Divider />
+      <Divider variant="accent" />
 
-      {/* What You Get */}
+      {/* What Membership Means — ValuePropCards */}
       <Section bg="alt">
         <Reveal>
-          <div className={styles.benefits}>
-            <h2 className={styles.subhead}>What Membership Means</h2>
-            <div className={styles.benefitGrid}>
-              <div className={styles.benefit}>
-                <h3>Your Voice</h3>
-                <p>
-                  Vote on party platform, leadership, and endorsements. This is
-                  your party. You run it.
-                </p>
-              </div>
-              <div className={styles.benefit}>
-                <h3>Your Chapter</h3>
-                <p>
-                  Connect with organizers in your area. Build power locally.
-                  State chapters are where the work happens.
-                </p>
-              </div>
-              <div className={styles.benefit}>
-                <h3>Your Candidates</h3>
-                <p>
-                  Help recruit, vet, and support candidates who refuse corporate
-                  money and fight for working people.
-                </p>
-              </div>
-              <div className={styles.benefit}>
-                <h3>Your Movement</h3>
-                <p>
-                  Be part of something that&apos;s never existed in this country.
-                  A party built by workers, for workers.
-                </p>
-              </div>
-            </div>
+          <h2 className={styles.sectionHeading}>What Membership Means</h2>
+        </Reveal>
+        <Reveal stagger>
+          <div className={styles.propGrid}>
+            <ValuePropCard
+              number={1}
+              title="Your Voice"
+              description="Vote on party platform, leadership, and endorsements. This is your party. You run it."
+            />
+            <ValuePropCard
+              number={2}
+              title="Your Chapter"
+              description="Connect with organizers in your area. Build power locally. State chapters are where the work happens."
+            />
+            <ValuePropCard
+              number={3}
+              title="Your Candidates"
+              description="Help recruit, vet, and support candidates who refuse corporate money and fight for working people."
+            />
+            <ValuePropCard
+              number={4}
+              title="Your Movement"
+              description="Be part of something that's never existed in this country. A party built by workers, for workers."
+            />
           </div>
         </Reveal>
       </Section>
 
-      <Divider />
+      <Divider variant="heavy" />
 
-      {/* Stats - Animated */}
-      <Section>
-        <AnimatedCounter stats={JOIN_STATS} />
+      {/* Where Your Dues Go — dark section */}
+      <Section bg="dark">
+        <Reveal>
+          <h2 className={styles.duesHeading}>Where Your Dues Go</h2>
+          <p className={styles.duesIntro}>
+            Full transparency. Every dollar accounted for.
+          </p>
+          <div className={styles.duesBreakdown}>
+            {DUES_BREAKDOWN.map((item) => (
+              <div key={item.label} className={styles.duesRow}>
+                <div className={styles.duesBarWrap}>
+                  <div
+                    className={styles.duesBar}
+                    style={{ width: `${item.pct}%` }}
+                  />
+                </div>
+                <div className={styles.duesLabel}>
+                  <span className={styles.duesPct}>{item.pct}%</span>
+                  <span className={styles.duesName}>{item.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </Section>
 
-      <Divider />
+      <Divider variant="accent" />
 
       {/* Final CTA */}
       <Section bg="accent">
         <Reveal>
           <div className={styles.finalCta}>
-            <h2 className={styles.subhead}>Ready?</h2>
+            <h2 className={styles.ctaHeading}>Ready?</h2>
             <p>
               Membership starts at whatever you can afford. We&apos;re funded by
               working people, not billionaires, so every dollar counts.

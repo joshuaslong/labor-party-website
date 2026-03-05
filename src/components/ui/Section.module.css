@@ -21,6 +21,22 @@
   background: var(--bg-accent);
 }
 
+.dark {
+  background: var(--footer-bg);
+  color: var(--cream);
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4 {
+  color: var(--cream);
+}
+
+.dark p {
+  color: rgba(237, 228, 204, 0.8);
+}
+
 .inner {
   max-width: 1200px;
   margin: 0 auto;

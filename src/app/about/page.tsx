@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/Button";
 import { Divider } from "@/components/ui/Divider";
 import { Reveal } from "@/components/ui/Reveal";
 import { TextReveal } from "@/components/ui/TextReveal";
+import { PullQuote } from "@/components/ui/PullQuote";
+import { HorizontalTimeline } from "@/components/ui/HorizontalTimeline";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -12,6 +14,42 @@ export const metadata: Metadata = {
   description:
     "The Labor Party was founded in 2024 as an independent political party for working people. No corporate money. No compromise.",
 };
+
+const TIMELINE_NODES = [
+  {
+    date: "2024",
+    title: "The Beginning",
+    description:
+      "Workers across every region, industry, and background decide to stop waiting for the two parties to change.",
+  },
+  {
+    date: "The Platform",
+    title: "12 Policy Areas",
+    description:
+      "A comprehensive platform built from first principles — grounded in the material conditions of working people.",
+  },
+  {
+    date: "50 States",
+    title: "Every Chapter",
+    description:
+      "State chapters established across the country. Local organizing where the work happens.",
+  },
+  {
+    date: "Today",
+    title: "Building Power",
+    description:
+      "Recruiting candidates, growing membership, and building the party that should have existed all along.",
+  },
+];
+
+const VALUES = [
+  { title: "Living Wages", description: "Good jobs that let you live with dignity, not just survive." },
+  { title: "Universal Healthcare", description: "Healthcare that doesn't bankrupt you. No premiums, no copays." },
+  { title: "Affordable Housing", description: "Rent you can actually afford. Real rent control, not lip service." },
+  { title: "Public Education", description: "Schools that prepare your kids for real life. Tuition-free college." },
+  { title: "Worker Power", description: "Strong unions and the right to organize in every workplace." },
+  { title: "Accountability", description: "A government that works for the people who pay for it." },
+];
 
 export default function AboutPage() {
   return (
@@ -29,40 +67,32 @@ export default function AboutPage() {
         <TextReveal text="Neither major party serves working people. Democrats talk about workers while cashing checks from Wall Street. Republicans talk about jobs while cutting the regulations that keep workers safe. Both parties have had over 150 years. The results speak for themselves." />
       </Section>
 
-      <Divider />
+      <Divider variant="heavy" />
 
-      {/* Origin Story */}
-      <Section>
-        <Reveal>
-          <Container>
-            <h2 className={styles.subhead}>Founded in 2024</h2>
-            <p>
-              We started because someone had to. Working people across every
-              region, industry, and background decided to stop waiting for the
-              two parties to change and built something of their own. Not a
-              splinter of the left. Not a moderate wing of anything. A
-              first-principles institution built from the ground up.
-            </p>
-          </Container>
-        </Reveal>
-      </Section>
-
-      <Divider />
-
-      {/* What Makes Us Different */}
+      {/* Timeline */}
       <Section bg="alt">
         <Reveal>
+          <h2 className={styles.timelineHeading}>Our Story</h2>
+        </Reveal>
+        <HorizontalTimeline nodes={TIMELINE_NODES} />
+      </Section>
+
+      <Divider variant="accent" />
+
+      {/* What Makes Us Different — dark section */}
+      <Section bg="dark">
+        <Reveal>
           <Container>
-            <h2 className={styles.subhead}>What Makes Us Different</h2>
+            <h2 className={styles.darkHeading}>What Makes Us Different</h2>
             <p>
               We take no corporate money. Not from pharmaceutical companies. Not
               from real estate investors. Not from Wall Street. Not from anyone
               who profits from keeping wages low, rents high, and healthcare
               out of reach.
             </p>
-            <p className={styles.highlight}>
+            <PullQuote>
               That&apos;s not a slogan. It&apos;s a structural advantage.
-            </p>
+            </PullQuote>
             <p>
               Politicians who take corporate PAC money can&apos;t propose real rent
               control because their donors would pull funding the same day. They
@@ -77,35 +107,32 @@ export default function AboutPage() {
         </Reveal>
       </Section>
 
-      <Divider />
+      <Divider variant="heavy" />
 
-      {/* Values */}
+      {/* Values Grid */}
       <Section>
         <Reveal>
-          <Container>
-            <h2 className={styles.subhead}>What We Stand For</h2>
-            <p>
-              Good jobs with living wages. Healthcare that doesn&apos;t bankrupt you.
-              Rent you can actually afford. Schools that prepare your kids for
-              real life. A government that works for the people who pay for it.
-            </p>
-            <p>
-              These aren&apos;t radical ideas. They&apos;re common sense. The only reason
-              they feel radical is that both parties take money from the people
-              who benefit from the way things are. We don&apos;t, so we won&apos;t
-              compromise.
-            </p>
-          </Container>
+          <h2 className={styles.valuesHeading}>What We Stand For</h2>
+        </Reveal>
+        <Reveal stagger>
+          <div className={styles.valuesGrid}>
+            {VALUES.map((v) => (
+              <div key={v.title} className={styles.valueCard}>
+                <h3 className={styles.valueTitle}>{v.title}</h3>
+                <p className={styles.valueDesc}>{v.description}</p>
+              </div>
+            ))}
+          </div>
         </Reveal>
       </Section>
 
-      <Divider />
+      <Divider variant="accent" />
 
       {/* CTA */}
       <Section bg="accent">
         <Reveal>
           <div className={styles.cta}>
-            <h2 className={styles.subhead}>Be Part of It</h2>
+            <h2 className={styles.ctaHeading}>Be Part of It</h2>
             <p>
               We&apos;re building the first political party in modern American
               history that refuses corporate money on principle. Your membership

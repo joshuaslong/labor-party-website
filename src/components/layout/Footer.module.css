@@ -48,11 +48,10 @@
 }
 
 .est {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 600;
-  font-stretch: expanded;
-  font-size: 12px;
-  letter-spacing: 0.08em;
+  font-size: 11px;
+  letter-spacing: 0.1em;
   color: rgba(237, 228, 204, 0.5);
 }
 

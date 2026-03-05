@@ -1,6 +1,5 @@
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
 import { Divider } from "@/components/ui/Divider";
 import { Reveal } from "@/components/ui/Reveal";
 import { ParallaxHero } from "@/components/ui/ParallaxHero";
@@ -8,21 +7,18 @@ import { TextReveal } from "@/components/ui/TextReveal";
 import { StickyComparison } from "@/components/ui/StickyComparison";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { TextMarquee } from "@/components/ui/TextMarquee";
+import { StackingCards } from "@/components/ui/StackingCards";
+import { PullQuote } from "@/components/ui/PullQuote";
+import { Container } from "@/components/ui/Container";
 import styles from "./page.module.css";
 
-const PLATFORM_PREVIEW = [
-  { title: "Labor & Worker Rights", summary: "Strong unions, living wages, and the right to organize.", slug: "labor-worker-rights" },
-  { title: "Economic & Social Justice", summary: "Affordable housing, rent control, and corporate accountability.", slug: "economic-social-justice" },
-  { title: "Healthcare", summary: "Free healthcare for every American. No premiums, no copays.", slug: "healthcare-social-protections" },
-  { title: "Public Education", summary: "Fully funded public schools and tuition-free college.", slug: "public-education" },
-  { title: "Civil Rights", summary: "Equal rights and protections for all Americans.", slug: "civil-rights-social-freedoms" },
-  { title: "Immigration", summary: "Fair, humane immigration reform with worker protections.", slug: "immigration-migrant-justice" },
-  { title: "Criminal Justice", summary: "End mass incarceration and rebuild communities.", slug: "criminal-justice-police-reform" },
-  { title: "Democracy", summary: "Get corporate money out of politics. Protect voting rights.", slug: "government-democracy-accountability" },
-  { title: "Foreign Policy", summary: "Diplomacy first. End endless wars. Support veterans.", slug: "foreign-policy-global-commitments" },
-  { title: "Climate", summary: "Green jobs, clean energy, and environmental protection.", slug: "climate-environmental-protection" },
-  { title: "Tech & Outsourcing", summary: "Protect American jobs from offshoring and automation abuse.", slug: "tech-progress-outsourcing-protections" },
-  { title: "Food Security", summary: "Affordable, healthy food for every family in America.", slug: "food-security-nutrition" },
+const PLATFORM_STACKING = [
+  { title: "Labor & Worker Rights", summary: "Strong unions, living wages, and the right to organize.", href: "/platform/labor-worker-rights" },
+  { title: "Healthcare", summary: "Free healthcare for every American. No premiums, no copays.", href: "/platform/healthcare-social-protections" },
+  { title: "Economic & Social Justice", summary: "Affordable housing, rent control, and corporate accountability.", href: "/platform/economic-social-justice" },
+  { title: "Public Education", summary: "Fully funded public schools and tuition-free college.", href: "/platform/public-education" },
+  { title: "Climate", summary: "Green jobs, clean energy, and environmental protection.", href: "/platform/climate-environmental-protection" },
+  { title: "Democracy", summary: "Get corporate money out of politics. Protect voting rights.", href: "/platform/government-democracy-accountability" },
 ];
 
 const COMPARISON_ITEMS = [
@@ -77,9 +73,10 @@ const MARQUEE_ITEMS = [
 export default function Home() {
   return (
     <>
-      {/* ─── HERO: Parallax bison + centered content ─── */}
+      {/* ─── HERO ─── */}
       <ParallaxHero>
         <Reveal>
+          <div className={styles.heroRule} />
           <p className={styles.heroLabel}>EST. 2024</p>
         </Reveal>
         <Reveal>
@@ -103,19 +100,19 @@ export default function Home() {
         </Reveal>
       </ParallaxHero>
 
-      {/* ─── MARQUEE: Platform planks ticker ─── */}
+      {/* ─── MARQUEE ─── */}
       <TextMarquee items={MARQUEE_ITEMS} speed={35} />
 
-      {/* ─── MISSION: Word-by-word scroll reveal ─── */}
+      {/* ─── MISSION ─── */}
       <Section>
         <TextReveal
           text="We are an independent political party built by and for working people. We take no corporate money. We answer to workers, families, and communities across every region of this country. Both major parties serve corporate donors. We serve you."
         />
       </Section>
 
-      <Divider />
+      <Divider variant="heavy" />
 
-      {/* ─── STATS: Animated counters ─── */}
+      {/* ─── STATS ─── */}
       <Section bg="alt">
         <Reveal>
           <h2 className={styles.sectionTitle}>By the Numbers</h2>
@@ -123,14 +120,14 @@ export default function Home() {
         <AnimatedCounter stats={STATS} />
       </Section>
 
-      <Divider />
+      <Divider variant="heavy" />
 
-      {/* ─── COMPARISON: Sticky scroll us vs them ─── */}
+      {/* ─── COMPARISON ─── */}
       <StickyComparison items={COMPARISON_ITEMS} />
 
-      <Divider />
+      <Divider variant="accent" />
 
-      {/* ─── PLATFORM: What We Fight For ─── */}
+      {/* ─── PLATFORM: Stacking Cards ─── */}
       <Section>
         <Reveal>
           <h2 className={styles.sectionTitle}>What We Fight For</h2>
@@ -139,61 +136,54 @@ export default function Home() {
             of working people.
           </p>
         </Reveal>
-        <Reveal stagger>
-          <div className={styles.platformGrid}>
-            {PLATFORM_PREVIEW.map((item) => (
-              <Card key={item.slug} href={`/platform/${item.slug}`}>
-                <h3 className={styles.cardTitle}>{item.title}</h3>
-                <p className={styles.cardSummary}>{item.summary}</p>
-              </Card>
-            ))}
-          </div>
-        </Reveal>
+        <StackingCards items={PLATFORM_STACKING} />
         <Reveal>
           <div className={styles.platformCta}>
             <Button href="/platform" variant="secondary">
-              Explore the Full Platform
+              Explore All 12 Policy Areas
             </Button>
           </div>
         </Reveal>
       </Section>
 
-      <Divider />
+      <Divider variant="heavy" />
 
-      {/* ─── THE PITCH: No Corporate Money ─── */}
-      <Section bg="accent">
+      {/* ─── THE PITCH — Dark section for dramatic contrast ─── */}
+      <Section bg="dark">
         <Reveal>
           <div className={styles.pitch}>
             <h2 className={styles.pitchTitle}>No Corporate Money.<br />No Compromise.</h2>
-            <div className={styles.pitchBody}>
-              <p>
-                Both parties take money from the billionaires who rigged the tax
-                code, the pharmaceutical companies who price gouge your
-                prescriptions, and the real estate corporations who drive up
-                your rent.
-              </p>
-              <p className={styles.pitchHighlight}>
-                We don&apos;t. That&apos;s why we can propose what they never will.
-              </p>
-              <p>
-                Our tax plan generates $10.77 trillion in annual revenue while
-                cutting taxes for 90% of American households to zero. Free
-                healthcare in year one. Student loans gone by year seven.
-                National debt paid off by year twenty-two.
-              </p>
-              <p className={styles.pitchKicker}>
-                Check our math. Then check who funds us. Then check who funds
-                the other parties.
-              </p>
-            </div>
+            <Container>
+              <div className={styles.pitchBody}>
+                <p>
+                  Both parties take money from the billionaires who rigged the tax
+                  code, the pharmaceutical companies who price gouge your
+                  prescriptions, and the real estate corporations who drive up
+                  your rent.
+                </p>
+                <PullQuote>
+                  We don&apos;t. That&apos;s why we can propose what they never will.
+                </PullQuote>
+                <p>
+                  Our tax plan generates $10.77 trillion in annual revenue while
+                  cutting taxes for 90% of American households to zero. Free
+                  healthcare in year one. Student loans gone by year seven.
+                  National debt paid off by year twenty-two.
+                </p>
+                <p className={styles.pitchKicker}>
+                  Check our math. Then check who funds us. Then check who funds
+                  the other parties.
+                </p>
+              </div>
+            </Container>
           </div>
         </Reveal>
       </Section>
 
-      <Divider />
+      <Divider variant="accent" />
 
       {/* ─── JOIN CTA ─── */}
-      <Section>
+      <Section bg="accent">
         <Reveal>
           <div className={styles.joinCta}>
             <p className={styles.joinLabel}>Become a member</p>
@@ -201,22 +191,15 @@ export default function Home() {
               This is your party.<br />It doesn&apos;t work without you.
             </h2>
             <p className={styles.joinText}>
-              We&apos;re building something that&apos;s never existed in this country: a
-              political party that answers to working people and nobody else.
-              Every member strengthens the foundation. Every dollar comes from someone
-              who works for a living.
+              Every member strengthens the foundation. Every dollar comes from
+              someone who works for a living. No corporate money. No compromise.
             </p>
-            <div className={styles.joinCtas}>
-              <Button
-                href="https://members.votelabor.org"
-                external
-              >
-                Become a Member
-              </Button>
-              <Button href="/about" variant="secondary">
-                Learn More About Us
-              </Button>
-            </div>
+            <Button
+              href="https://members.votelabor.org"
+              external
+            >
+              Become a Member
+            </Button>
           </div>
         </Reveal>
       </Section>

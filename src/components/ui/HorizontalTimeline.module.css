@@ -1,0 +1,97 @@
+.container {
+  position: relative;
+}
+
+.sticky {
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 48px;
+}
+
+@media (max-width: 768px) {
+  .sticky {
+    padding: 0 24px;
+  }
+}
+
+.track {
+  position: relative;
+  overflow: visible;
+}
+
+.rail {
+  display: flex;
+  gap: 0;
+  will-change: transform;
+}
+
+.node {
+  flex: 0 0 min(400px, 80vw);
+  padding: 0 40px 0 0;
+  position: relative;
+}
+
+@media (max-width: 640px) {
+  .node {
+    flex: 0 0 85vw;
+    padding-right: 24px;
+  }
+}
+
+.diamond {
+  width: 12px;
+  height: 12px;
+  background: var(--molten);
+  transform: rotate(45deg);
+  margin-bottom: 24px;
+}
+
+.date {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--molten);
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: clamp(1.375rem, 2vw + 0.25rem, 1.75rem);
+  font-weight: 600;
+  font-stretch: condensed;
+  margin: 0 0 12px;
+  line-height: 1.1;
+}
+
+.description {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 320px;
+}
+
+/* Timeline track line */
+.line {
+  position: absolute;
+  bottom: 50%;
+  left: 48px;
+  right: 48px;
+  height: 2px;
+  background: var(--border-strong);
+  transform: translateY(80px);
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .line {
+    left: 24px;
+    right: 24px;
+  }
+}

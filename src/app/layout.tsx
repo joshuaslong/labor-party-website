@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
+import { StickyJoinCTA } from "@/components/ui/StickyJoinCTA";
 
 export const metadata: Metadata = {
   title: {
@@ -65,6 +66,7 @@ export default function RootLayout({
             <Header />
             <main id="main">{children}</main>
             <Footer />
+            <StickyJoinCTA />
           </SmoothScroll>
         </ThemeProvider>
       </body>
