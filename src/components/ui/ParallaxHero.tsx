@@ -16,15 +16,14 @@ export function ParallaxHero({ children }: ParallaxHeroProps) {
     offset: ["start start", "end start"],
   });
 
-  const bisonY = useTransform(scrollYProgress, [0, 1], [0, 150]);
-  const bisonScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-  const bisonOpacity = useTransform(scrollYProgress, [0, 0.8], [0.18, 0.06]);
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, -60]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0, 0.3]);
+  const bisonY = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const bisonScale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
+  const bisonOpacity = useTransform(scrollYProgress, [0, 0.8], [0.12, 0.04]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -30]);
 
   return (
     <section ref={ref} className={styles.hero}>
-      {/* Bison background layer — moves slower (parallax) */}
+      {/* Bison watermark — top right */}
       <motion.div
         className={styles.bisonLayer}
         style={{ y: bisonY, scale: bisonScale, opacity: bisonOpacity }}
@@ -40,10 +39,7 @@ export function ParallaxHero({ children }: ParallaxHeroProps) {
         />
       </motion.div>
 
-      {/* Scroll fade overlay */}
-      <motion.div className={styles.fadeOverlay} style={{ opacity: overlayOpacity }} />
-
-      {/* Content layer — moves up slightly faster */}
+      {/* Content — pinned to bottom of hero */}
       <motion.div className={styles.content} style={{ y: contentY }}>
         {children}
       </motion.div>

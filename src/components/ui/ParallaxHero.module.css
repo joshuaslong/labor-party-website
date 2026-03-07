@@ -1,69 +1,56 @@
 .hero {
   position: relative;
-  min-height: 85vh;
+  height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
   overflow: hidden;
   background: var(--bg);
 }
 
 .bisonLayer {
   position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 5vw;
+  top: 0;
+  right: 0;
+  width: 55vw;
+  max-width: 720px;
   pointer-events: none;
   will-change: transform;
 }
 
 .bisonImage {
-  width: 55vw;
-  max-width: 800px;
+  width: 100%;
   height: auto;
   filter: contrast(1.1);
-}
-
-.fadeOverlay {
-  position: absolute;
-  inset: 0;
-  background: var(--bg);
-  pointer-events: none;
 }
 
 .content {
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: 0 5vw;
-  text-align: left;
+  padding: 0 5vw 5vh;
   will-change: transform;
 }
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 70vh;
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
 
   .bisonLayer {
-    align-items: flex-end;
-    justify-content: center;
-    padding-right: 0;
-  }
-
-  .bisonImage {
-    width: 90vw;
-    opacity: 0.15;
+    width: 80vw;
+    opacity: 0.1;
   }
 
   .content {
-    padding: 0 24px;
+    padding: 0 24px 32px;
   }
 }
 
 @media (max-width: 480px) {
   .content {
-    padding: 0 16px;
+    padding: 0 16px 24px;
   }
 }

@@ -76,26 +76,18 @@ export default function Home() {
       {/* ─── HERO ─── */}
       <ParallaxHero>
         <Reveal>
-          <div className={styles.heroRule} />
-          <p className={styles.heroLabel}>EST. 2024</p>
-        </Reveal>
-        <Reveal>
           <h1 className={`display ${styles.heroTitle}`}>
-            THE LABOR<br />PARTY
+            THE LABOR PARTY
           </h1>
         </Reveal>
         <Reveal>
-          <p className={styles.heroSubtitle}>
-            The first political party in America built by working people,
-            funded by working people, and accountable to nobody else.
-          </p>
-        </Reveal>
-        <Reveal>
-          <div className={styles.heroCtas}>
+          <div className={styles.heroFooter}>
             <Button href="/join">Join the Fight</Button>
-            <Button href="/platform" variant="secondary">
-              Read Our Platform
-            </Button>
+            <span className={styles.heroEst}>EST. 2024</span>
+            <p className={styles.heroTagline}>
+              Wages. Healthcare. Housing.<br />
+              A party that will <em>actually</em> fight for them.
+            </p>
           </div>
         </Reveal>
       </ParallaxHero>
